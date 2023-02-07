@@ -1,5 +1,8 @@
 const shoppingCart = document.querySelector(".shopping-cart");
 const shoppingCartBtn = document.querySelector(".shopping-cart-btn");
+const shoppingCartItem = document.querySelector(".shopping-cart-item");
+const checkoutBtn = document.querySelector(".shopping-cart-checkout-btn");
+const emptyCartMessage = document.querySelector(".empty-cart");
 
 const menuOverlay = document.querySelector(".menu-overlay");
 const menu = document.querySelector(".menu");
@@ -14,8 +17,14 @@ const productCount = document.querySelector(".product-count");
 const productCountPlusBtn = document.querySelector(".product-count-plus-btn");
 const productCountMinusBtn = document.querySelector(".product-count-minus-btn");
 
+const totalPrice = document.querySelector(".total-price");
+const itemsInBasket = document.querySelector(".items-in-basket");
+const clearBasketBtn = document.querySelector(".clear-basket-btn");
+const itemsInBasketCount = document.querySelector(".items-in-basket-count");
+
 const addToCartBtn = document.querySelector(".add-to-cart-btn");
 
+const price = 125;
 let currentSlide = 0;
 let maxSlide = slides.length - 1;
 let productsInBasket = 0;
@@ -43,6 +52,13 @@ slides.forEach((slide, index) => {
 
 shoppingCartBtn.addEventListener("click", () => {
   if (basketEmpty) {
+    emptyCartMessage.classList.remove("hide");
+    shoppingCartItem.classList.add("hide");
+    checkoutBtn.classList.add("hide");
+  } else {
+    emptyCartMessage.classList.add("hide");
+    shoppingCartItem.classList.remove("hide");
+    checkoutBtn.classList.remove("hide");
   }
 
   shoppingCart.classList.toggle("hide");
@@ -69,4 +85,35 @@ productCountPlusBtn.addEventListener("click", () => {
   productCount.textContent = productsInBasket;
 });
 
-addToCartBtn.addEventListener("click", () => {});
+addToCartBtn.addEventListener("click", () => {
+  productsInBasket > 0 ? (basketEmpty = false) : (basketEmpty = true);
+
+  const total = price * productsInBasket;
+
+  totalPrice.textContent = total;
+  itemsInBasket.textContent = productsInBasket;
+
+  if (basketEmpty) {
+    itemsInBasketCount.classList.add("hide");
+    emptyCartMessage.classList.remove("hide");
+    shoppingCartItem.classList.add("hide");
+    checkoutBtn.classList.add("hide");
+  } else {
+    itemsInBasketCount.classList.remove("hide");
+    itemsInBasketCount.textContent = productsInBasket;
+    emptyCartMessage.classList.add("hide");
+    shoppingCartItem.classList.remove("hide");
+    checkoutBtn.classList.remove("hide");
+  }
+});
+
+clearBasketBtn.addEventListener("click", () => {
+  basketEmpty = true;
+
+  productsInBasket = 0;
+  productCount.textContent = productsInBasket;
+
+  emptyCartMessage.classList.remove("hide");
+  shoppingCartItem.classList.add("hide");
+  checkoutBtn.classList.add("hide");
+});

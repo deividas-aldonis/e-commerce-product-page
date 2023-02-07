@@ -41,7 +41,10 @@
         <img src="images/logo.svg" alt="" />
       </div>
       <div>
-        <img class="shopping-cart-btn" src="images/icon-cart.svg" alt="" />
+        <div class="shopping-cart-btn-container">
+          <img class="shopping-cart-btn" src="images/icon-cart.svg" alt="" />
+          <div class="items-in-basket-count hide"></div>
+        </div>
         <img class="avatar" src="images/image-avatar.png" alt="" />
       </div>
     </div>
@@ -63,27 +66,31 @@
       <div class="shopping-cart hide">
         <div class="shopping-cart-title">Cart</div>
         <div class="shopping-cart-item-container">
-          <!-- <div class="shopping-cart-item">
+          <div class="shopping-cart-item hide">
             <img
               class="shopping-cart-item-image"
               src="images/image-product-1-thumbnail.jpg"
               alt=""
             />
+
             <div class="shopping-cart-item-info">
               <div class="shopping-cart-item-price">
                 <div class="shopping-cart-item-title">
                   Fall Limited Edition Sneakers
                 </div>
                 <div class="shopping-cart-item-count-price">
-                  <div>$125.00 x <span class="item-amount">3</span></div>
-                  <div class="shopping-cart-item-total-price">$375.00</div>
+                  <div>$125.00 x <span class="items-in-basket">3</span></div>
+                  <div class="shopping-cart-item-total-price">
+                    $<span class="total-price">375.00</span>
+                  </div>
                 </div>
               </div>
             </div>
-            <img src="images/icon-delete.svg" alt="" />
+
+            <img class="clear-basket-btn" src="images/icon-delete.svg" alt="" />
           </div>
-          <button class="shopping-cart-checkout-btn">Checkout</button> -->
-          <div class="empty-cart">Your cart is empty.</div>
+          <button class="shopping-cart-checkout-btn hide">Checkout</button>
+          <div class="empty-cart hide">Your cart is empty.</div>
         </div>
       </div>
 
