@@ -58,6 +58,106 @@ button {
 
 /* PRODUCT */
 
+.product-container {
+  position: relative;
+}
+
+/* PRODUCT CART */
+.shopping-cart {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 1%;
+  right: 2.5%;
+  z-index: 10;
+  width: 95%;
+  height: 250px;
+
+  opacity: 1;
+  transform: translateY(0px);
+  visibility: visible;
+  pointer-events: all;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  transition: all 0.2s ease-out;
+}
+
+.shopping-cart.hide {
+  opacity: 0;
+  transform: translateY(50px);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.shopping-cart-title {
+  padding: 20px;
+  font-weight: 700;
+  border-bottom: 1px solid var(--grayish-blue);
+}
+
+.shopping-cart-item-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+}
+
+.shopping-cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 24px;
+}
+
+.shopping-cart-item-info {
+  display: flex;
+  gap: 4px;
+  color: var(--dark-grayish-blue);
+}
+
+.shopping-cart-item-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+}
+
+.shopping-cart-item-price {
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-start;
+  gap: 6px;
+}
+
+.shopping-cart-item-count-price {
+  display: flex;
+  gap: 12px;
+}
+
+.shopping-cart-item-total-price {
+  color: black;
+  font-weight: 700;
+}
+
+.shopping-cart-checkout-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+
+  background-color: var(--orange);
+  color: var(--white);
+  padding: 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+/* SLIDER */
+
 .product-slider {
   position: relative;
 }
@@ -96,13 +196,15 @@ button {
   object-fit: cover;
 }
 
+/* PRODUCT INFO */
 .product-info {
   padding: 20px;
 }
 
 .product-brand {
-  color: var(--orange);
+  font-size: 12px;
   font-weight: 700;
+  color: var(--orange);
   margin-bottom: 16px;
 }
 
@@ -171,7 +273,7 @@ button {
   justify-content: center;
   align-items: baseline;
   gap: 16px;
-  font-size: 20px;
+  font-size: 16px;
 
   background-color: var(--orange);
   color: var(--white);

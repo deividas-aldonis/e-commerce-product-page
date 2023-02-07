@@ -18,6 +18,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
     <title>Frontend Mentor | E-commerce product page</title>
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   </head>
@@ -40,12 +41,41 @@
         <img src="images/logo.svg" alt="" />
       </div>
       <div>
-        <img src="images/icon-cart.svg" alt="" />
+        <img class="shopping-cart-btn" src="images/icon-cart.svg" alt="" />
         <img class="avatar" src="images/image-avatar.png" alt="" />
       </div>
     </div>
     <!-- Product -->
     <div class="product-container">
+      <!-- Product Shopping Cart -->
+      <div class="shopping-cart">
+        <div class="shopping-cart-title">Cart</div>
+        <div class="shopping-cart-item-container">
+          <div class="shopping-cart-item">
+            <img
+              class="shopping-cart-item-image"
+              src="images/image-product-1-thumbnail.jpg"
+              alt=""
+            />
+            <div class="shopping-cart-item-info">
+              <div class="shopping-cart-item-price">
+                <div class="shopping-cart-item-title">
+                  Fall Limited Edition Sneakers
+                </div>
+                <div class="shopping-cart-item-count-price">
+                  <div>$125.00 x <span class="item-amount">3</span></div>
+                  <div class="shopping-cart-item-total-price">$375.00</div>
+                </div>
+              </div>
+            </div>
+            <img src="images/icon-delete.svg" alt="" />
+          </div>
+          <button class="shopping-cart-checkout-btn">Checkout</button>
+          <!-- <div class="empty-cart">Your cart is empty.</div> -->
+        </div>
+      </div>
+
+      <!-- Slider -->
       <div class="product-slider">
         <button class="product-slider-btn prev-btn">
           <img src="images/icon-previous.svg" alt="" />
@@ -55,7 +85,7 @@
         </button>
         <img class="product-image" src="images/image-product-1.jpg" alt="" />
       </div>
-
+      <!-- Product Info -->
       <div class="product-info">
         <h4 class="product-brand">SNEAKER COMPANY</h4>
         <h2 class="product-name">Fall Limited Edition Sneakers</h2>
