@@ -113,6 +113,7 @@ clearBasketBtn.addEventListener("click", () => {
   productsInBasket = 0;
   productCount.textContent = productsInBasket;
 
+  itemsInBasketCount.classList.add("hide");
   emptyCartMessage.classList.remove("hide");
   shoppingCartItem.classList.add("hide");
   checkoutBtn.classList.add("hide");
