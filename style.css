@@ -30,7 +30,6 @@ button {
 .topnav {
   display: flex;
   justify-content: space-between;
-
   padding: 20px;
 }
 
@@ -48,12 +47,54 @@ button {
   gap: 24px;
 }
 
-.menu-icon {
+.menu-btn {
   margin-top: 3px;
 }
 
 .avatar {
   width: 25px;
+}
+
+/* MOBILE MENU */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 35%;
+  height: 100vh;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: translateX(0%);
+  transition: transform 0.2s ease;
+}
+
+.menu-overlay.hide {
+  transform: translateX(100%);
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  width: 65%;
+  height: 100vh;
+  padding: 20px;
+  z-index: 100;
+  background-color: var(--white);
+  transition: transform 0.2s ease;
+}
+
+.menu.hide {
+  transform: translate(-100%);
+}
+
+.menu-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  margin-top: 60px;
+  font-weight: 700;
+  color: var(--very-dark-blue);
 }
 
 /* PRODUCT */
