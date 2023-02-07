@@ -63,7 +63,7 @@
       <div class="shopping-cart hide">
         <div class="shopping-cart-title">Cart</div>
         <div class="shopping-cart-item-container">
-          <div class="shopping-cart-item">
+          <!-- <div class="shopping-cart-item">
             <img
               class="shopping-cart-item-image"
               src="images/image-product-1-thumbnail.jpg"
@@ -82,20 +82,33 @@
             </div>
             <img src="images/icon-delete.svg" alt="" />
           </div>
-          <button class="shopping-cart-checkout-btn">Checkout</button>
-          <!-- <div class="empty-cart">Your cart is empty.</div> -->
+          <button class="shopping-cart-checkout-btn">Checkout</button> -->
+          <div class="empty-cart">Your cart is empty.</div>
         </div>
       </div>
 
       <!-- Slider -->
-      <div class="product-slider">
-        <button class="product-slider-btn prev-btn">
-          <img src="images/icon-previous.svg" alt="" />
-        </button>
-        <button class="product-slider-btn next-btn">
-          <img src="images/icon-next.svg" alt="" />
-        </button>
-        <img class="product-image" src="images/image-product-1.jpg" alt="" />
+      <div class="product-slider-container">
+        <div class="product-slider">
+          <div class="product-slide">
+            <img src="images/image-product-1.jpg" alt="" />
+          </div>
+          <div class="product-slide">
+            <img src="images/image-product-2.jpg" alt="" />
+          </div>
+          <div class="product-slide">
+            <img src="images/image-product-3.jpg" alt="" />
+          </div>
+          <div class="product-slide">
+            <img src="images/image-product-4.jpg" alt="" />
+          </div>
+          <button class="product-slider-btn prev-slide">
+            <img src="images/icon-previous.svg" alt="" />
+          </button>
+          <button class="product-slider-btn next-slide">
+            <img src="images/icon-next.svg" alt="" />
+          </button>
+        </div>
       </div>
       <!-- Product Info -->
       <div class="product-info">
@@ -118,17 +131,13 @@
         </div>
 
         <div class="product-count-container">
-          <img
-            class="product-count-minus-btn"
-            src="images/icon-minus.svg"
-            alt=""
-          />
+          <button class="product-count-minus-btn">
+            <img src="images/icon-minus.svg" alt="" />
+          </button>
           <span class="product-count">0</span>
-          <img
-            class="product-count-plus-btn"
-            src="images/icon-plus.svg"
-            alt=""
-          />
+          <button class="product-count-plus-btn">
+            <img src="images/icon-plus.svg" alt="" />
+          </button>
         </div>
 
         <button class="add-to-cart-btn">
