@@ -41,8 +41,10 @@ slides[slides.length - 1].addEventListener(
   }
 );
 
+
+
 const setSlides = () => {
-  if (window.innerWidth >= 425 && window.innerWidth <= 768) {
+  if (window.innerWidth >= 425 && window.innerWidth < 768) {
     maxSlide = slides.length - 2;
   } else {
     maxSlide = slides.length - 1;
