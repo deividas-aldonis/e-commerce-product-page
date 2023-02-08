@@ -10,14 +10,25 @@
   --black-lightbox: hsl(0, 0%, 0%);
 }
 
+@font-face {
+  font-family: "Kumbh";
+  src: url("assets/font/KumbhSans-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Kumbh";
+  src: url("assets/font/KumbhSans-Bold.ttf");
+  font-weight: 700;
+}
+
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: "Kumbh Sans", sans-serif;
+  font-family: "Kumbh";
 }
 
 button {
