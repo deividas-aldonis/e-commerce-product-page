@@ -11,6 +11,7 @@ const closeMenuBtn = document.querySelector(".close-menu-btn");
 
 const nextSlide = document.querySelector(".next-slide");
 const prevSlide = document.querySelector(".prev-slide");
+const slider = document.querySelector(".product-slider");
 const slides = document.querySelectorAll(".product-slide");
 
 const productCount = document.querySelector(".product-count");
@@ -26,9 +27,34 @@ const addToCartBtn = document.querySelector(".add-to-cart-btn");
 
 const price = 125;
 let currentSlide = 0;
-let maxSlide = slides.length - 1;
+let maxSlide;
 let productsInBasket = 0;
 let basketEmpty = true;
+
+slides[slides.length - 1].addEventListener(
+  "transitionend",
+  () => {
+    slider.classList.remove("hide");
+  },
+  {
+    once: true,
+  }
+);
+
+const setSlides = () => {
+  if (window.innerWidth >= 425 && window.innerWidth <= 768) {
+    maxSlide = slides.length - 2;
+  } else {
+    maxSlide = slides.length - 1;
+  }
+
+  slides.forEach((slide, index) => {
+    slide.style.transform = `translateX(${index * 100}%)`;
+  });
+};
+
+window.addEventListener("DOMContentLoaded", setSlides);
+window.addEventListener("resize", setSlides);
 
 nextSlide.addEventListener("click", () => {
   currentSlide === maxSlide ? (currentSlide = 0) : currentSlide++;
@@ -44,10 +70,6 @@ prevSlide.addEventListener("click", () => {
   slides.forEach((slide, index) => {
     slide.style.transform = `translateX(${100 * (index - currentSlide)}%)`;
   });
-});
-
-slides.forEach((slide, index) => {
-  slide.style.transform = `translateX(${index * 100}%)`;
 });
 
 shoppingCartBtn.addEventListener("click", () => {
