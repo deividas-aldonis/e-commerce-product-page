@@ -13,6 +13,9 @@ const nextSlide = document.querySelector(".next-slide");
 const prevSlide = document.querySelector(".prev-slide");
 const slider = document.querySelector(".product-slider");
 const slides = document.querySelectorAll(".product-slide");
+const productThumbnailBtns = document.querySelectorAll(
+  ".product-thumbnail-btn"
+);
 
 const productCount = document.querySelector(".product-count");
 const productCountPlusBtn = document.querySelector(".product-count-plus-btn");
@@ -41,8 +44,6 @@ slides[slides.length - 1].addEventListener(
   }
 );
 
-
-
 const setSlides = () => {
   if (window.innerWidth >= 425 && window.innerWidth < 768) {
     maxSlide = slides.length - 2;
@@ -53,6 +54,11 @@ const setSlides = () => {
   slides.forEach((slide, index) => {
     slide.style.transform = `translateX(${index * 100}%)`;
   });
+
+  currentSlide = 0;
+
+  productThumbnailBtns.forEach((btn) => btn.classList.remove("active"));
+  productThumbnailBtns[currentSlide].classList.add("active");
 };
 
 window.addEventListener("DOMContentLoaded", setSlides);
@@ -64,6 +70,9 @@ nextSlide.addEventListener("click", () => {
   slides.forEach((slide, index) => {
     slide.style.transform = `translateX(${100 * (index - currentSlide)}%)`;
   });
+
+  productThumbnailBtns.forEach((btn) => btn.classList.remove("active"));
+  productThumbnailBtns[currentSlide].classList.add("active");
 });
 
 prevSlide.addEventListener("click", () => {
@@ -72,6 +81,24 @@ prevSlide.addEventListener("click", () => {
   slides.forEach((slide, index) => {
     slide.style.transform = `translateX(${100 * (index - currentSlide)}%)`;
   });
+
+  productThumbnailBtns.forEach((btn) => btn.classList.remove("active"));
+  productThumbnailBtns[currentSlide].classList.add("active");
+});
+
+const showSlide = (btnIndex) => {
+  currentSlide = btnIndex;
+
+  slides.forEach((slide, index) => {
+    slide.style.transform = `translateX(${100 * (index - currentSlide)}%)`;
+  });
+
+  productThumbnailBtns.forEach((btn) => btn.classList.remove("active"));
+  productThumbnailBtns[currentSlide].classList.add("active");
+};
+
+productThumbnailBtns.forEach((btn, index) => {
+  btn.addEventListener("click", () => showSlide(index));
 });
 
 shoppingCartBtn.addEventListener("click", () => {
