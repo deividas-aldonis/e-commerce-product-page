@@ -30,27 +30,11 @@ const addToCartBtn = document.querySelector(".add-to-cart-btn");
 
 const price = 125;
 let currentSlide = 0;
-let maxSlide;
+let maxSlide = slides.length - 1;
 let productsInBasket = 0;
 let basketEmpty = true;
 
-slides[slides.length - 1].addEventListener(
-  "transitionend",
-  () => {
-    slider.classList.remove("hide");
-  },
-  {
-    once: true,
-  }
-);
-
 const setSlides = () => {
-  if (window.innerWidth >= 425 && window.innerWidth < 768) {
-    maxSlide = slides.length - 2;
-  } else {
-    maxSlide = slides.length - 1;
-  }
-
   slides.forEach((slide, index) => {
     slide.style.transform = `translateX(${index * 100}%)`;
   });
@@ -62,7 +46,6 @@ const setSlides = () => {
 };
 
 window.addEventListener("DOMContentLoaded", setSlides);
-window.addEventListener("resize", setSlides);
 
 nextSlide.addEventListener("click", () => {
   currentSlide === maxSlide ? (currentSlide = 0) : currentSlide++;
