@@ -25,15 +25,23 @@ const totalPrice = document.querySelector(".total-price");
 const itemsInBasket = document.querySelector(".items-in-basket");
 const clearBasketBtn = document.querySelector(".clear-basket-btn");
 const itemsInBasketCount = document.querySelector(".items-in-basket-count");
-
 const addToCartBtn = document.querySelector(".add-to-cart-btn");
+
+const lightboxNextSlideBtn = document.querySelector(".lightbox-next-slide-btn");
+const lightboxPrevSlideBtn = document.querySelector(".lightbox-prev-slide-btn");
+const lightboxSlides = document.querySelectorAll(".lightbox-slide");
+const lightboxOverlay = document.querySelector(".lightbox-overlay");
+const closeLightboxBtn = document.querySelector(".close-lightbox-btn");
+const lightboxThumbnails = document.querySelectorAll(".thumbnail-overlay");
 
 const price = 125;
 let currentSlide = 0;
 let maxSlide = slides.length - 1;
 let productsInBasket = 0;
 let basketEmpty = true;
+let currentLightboxSlide = 0;
 
+// Product Slider
 const setSlides = () => {
   slides.forEach((slide, index) => {
     slide.style.transform = `translateX(${index * 100}%)`;
@@ -84,6 +92,60 @@ productThumbnailBtns.forEach((btn, index) => {
   btn.addEventListener("click", () => showSlide(index));
 });
 
+// Lightbox Slider
+slides.forEach((slide, index) => {
+  slide.addEventListener("click", () => {
+    currentLightboxSlide = index;
+
+    lightboxSlides.forEach((s) => s.classList.remove("active"));
+    lightboxSlides[currentLightboxSlide].classList.add("active");
+
+    lightboxThumbnails.forEach((t) => t.classList.remove("active"));
+    lightboxThumbnails[currentLightboxSlide].classList.add("active");
+
+    lightboxOverlay.classList.remove("hide");
+  });
+});
+
+lightboxNextSlideBtn.addEventListener("click", () => {
+  if (currentLightboxSlide === maxSlide) currentLightboxSlide = 0;
+  else currentLightboxSlide++;
+
+  lightboxSlides.forEach((s) => s.classList.remove("active"));
+  lightboxSlides[currentLightboxSlide].classList.add("active");
+
+  lightboxThumbnails.forEach((t) => t.classList.remove("active"));
+  lightboxThumbnails[currentLightboxSlide].classList.add("active");
+});
+
+lightboxPrevSlideBtn.addEventListener("click", () => {
+  if (currentLightboxSlide === 0) currentLightboxSlide = maxSlide;
+  else currentLightboxSlide--;
+
+  lightboxSlides.forEach((s) => s.classList.remove("active"));
+  lightboxSlides[currentLightboxSlide].classList.add("active");
+
+  lightboxThumbnails.forEach((t) => t.classList.remove("active"));
+  lightboxThumbnails[currentLightboxSlide].classList.add("active");
+});
+
+lightboxThumbnails.forEach((thumbnail, index) => {
+  thumbnail.addEventListener("click", () => {
+    currentLightboxSlide = index;
+
+    lightboxSlides.forEach((s) => s.classList.remove("active"));
+    lightboxSlides[currentLightboxSlide].classList.add("active");
+
+    lightboxThumbnails.forEach((t) => t.classList.remove("active"));
+    lightboxThumbnails[currentLightboxSlide].classList.add("active");
+  });
+});
+
+closeLightboxBtn.addEventListener("click", () => {
+  lightboxOverlay.classList.add("hide");
+});
+
+// Menu And Shopping Cart
 shoppingCartBtn.addEventListener("click", () => {
   if (basketEmpty) {
     emptyCartMessage.classList.remove("hide");
